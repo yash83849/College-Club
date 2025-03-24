@@ -1,5 +1,5 @@
 const express = require('express');
-const Model = require('../models/UserModel');
+const Model = require('../models/ClubModel');
 const jwt = require('jsonwebtoken');
 const verifyToken = require('../middlewares/verifyToken');
 require('dotenv').config();

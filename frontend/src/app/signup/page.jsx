@@ -12,7 +12,7 @@ const SignupSchema = Yup.object().shape({
   name: Yup.string()
     .min(2, 'Too Short!')
     .max(50, 'Too Long!')
-    .required('Naam jaroori hai'),
+    .required('fill the Name'),
   email: Yup.string().email('Invalid email').required('Required'),
   password: Yup.string().required('Password is required')
     .matches(/[a-z]/, 'lowercase letter is required')
@@ -25,7 +25,9 @@ const SignupSchema = Yup.object().shape({
 });
 
 const Signup = () => {
-const router = useRouter();
+
+  const router = useRouter();
+
   // initializing formik
   const signupForm = useFormik({
     initialValues: {
@@ -37,11 +39,11 @@ const router = useRouter();
     onSubmit: (values, { resetForm, setSubmitting }) => {
 
       // setTimeout(() => {
-      // console.log(values);
-      // resetForm();
-      //}, 2000);
+      //   console.log(values);
+      //   resetForm();
+      // }, 2000);
 
-      //fetch
+      // fetch
       axios.post('http://localhost:5000/user/add', values)
         .then((result) => {
           toast.success('User registered successfully');
@@ -51,19 +53,22 @@ const router = useRouter();
           console.log(err);
           toast.error('User registration failed');
           setSubmitting(false);
-
         });
+
       // send values to backend
     },
     validationSchema: SignupSchema
   });
+
   return (
-    <div className='bg-gray-300 h-screen pt-10'>
-    <div className="max-w-lg mx-auto bg-white border border-gray-200 rounded-xl shadow-sm dark:bg-neutral-900 dark:border-neutral-700">
+    
+    <div className='bg-white h-screen pt-10'>
+
+      <div className="max-w-lg mx-auto bg-white border border-gray-200 rounded-xl shadow-sm dark:bg-neutral-900 dark:border-neutral-700">
         <div className="p-4 sm:p-7">
           <div className="text-center">
             <h1 className="block text-2xl font-bold text-gray-800 dark:text-white">
-              Sign up
+              Sign Up
             </h1>
             <p className="mt-2 text-sm text-gray-600 dark:text-neutral-400">
               Already have an account?

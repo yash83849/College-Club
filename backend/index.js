@@ -1,7 +1,7 @@
 // importing express
 const express = require('express');
 const UserRouter = require('./routers/userRouter');
-const BusinessRouter = require('./routers/businessRouter');
+const clubRouter = require('./routers/clubRouter');
 const cors = require('cors');
 
 // create an express app
@@ -16,7 +16,7 @@ app.use(cors({
 
 app.use(express.json());
 app.use('/user', UserRouter);
-app.use('/business', BusinessRouter);
+app.use('/club', clubRouter);
 
 // routes or endpoints
 app.get('/', (req, res) => {

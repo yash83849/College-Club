@@ -5,7 +5,7 @@ const verifyToken = (req,res,next) => {
 
     const token = req.headers['x-auth-token'];
     if(!token) {
-        return res.status(403).json({message:'Token is required'});
+        return res.status(403).json({});
 
     }
     jwt.verify(token,process.env.JWT_SECRET, (err,payload) => {

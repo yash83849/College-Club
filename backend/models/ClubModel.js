@@ -2,55 +2,48 @@ const { default: mongoose } = require('mongoose');
 const { Schema, model } = require('../connection');
 
 const mySchema = new Schema({
-   
-    // club name
     name: {
         type: String,
         required: true,
         
     }, 
-    
-    // short Description of the club
     description: { 
-        type: String
+        type: String,
+        required: true
      },
-
-     //URL to the club logo/image
-     logo: {
-        type: String
+     adminId: {
+        type: String,
+        ref: 'Admin',
+        required: true
      },
-
-    // type of club
-    category: {
+     members: {
         type: String,
-        enum: ["sports", "cultural", "Tech", "Music", "other"]
-    },
-    
-    // club creator (admin)
-    createdBy: {
+        ref: 'User'
+     },
+     events: {
         type: String,
-        
-    },
-
-    // club members
-    members: [{
+        ref: 'Event'
+     },
+     joinRequests: {
         type: String,
-    
-    }],
-
-    // club events
-    events: [{
+        ref: 'JoinRequest'
+     },
+     clubLogo: {
         type: String,
-        
-    }],
+        required: false
+     },
+     clubImages: {
+        type: String,
+        required: false
+     }, 
 
+  
+
+   
     // club creation date
     createdAt: { type: Date, default: Date.now },
 
-    updatedAt: {
-        type: Date,
-        default: Date.now
-    },
+    
 });
 
 module.exports = model('club', mySchema);

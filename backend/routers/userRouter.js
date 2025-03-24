@@ -31,7 +31,7 @@ router.get('/getall', verifyToken, (req, res) => {
 });
 
 // : denotes url parameter
-router.get('/getbycity/:city', (req, res) => {
+router.get('/getbyclub/:club', (req, res) => {
     Model.find({ city: req.params.city })
         .then((result) => {
             res.status(200).json(result);

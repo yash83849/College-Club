@@ -2,17 +2,14 @@ const { default: mongoose } = require('mongoose');
 const { Schema, model } = require('../connection');
 
 const mySchema = new Schema({
-   
-    // club name
     name: {
         type: String,
         required: true,
         
     }, 
-    
-    // short Description of the club
     description: { 
-        type: String
+        type: String,
+        required: true
      },
 
      //URL to the club logo/image
@@ -43,13 +40,13 @@ const mySchema = new Schema({
         type: String,
     },
 
+  
+
+   
     // club creation date
     createdAt: { type: Date, default: Date.now },
 
-    updatedAt: {
-        type: Date,
-        default: Date.now
-    },
+    
 });
 
 module.exports = model('club', mySchema);

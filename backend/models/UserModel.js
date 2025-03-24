@@ -1,60 +1,39 @@
 const { Schema, model } = require('../connection');
 
-const mySchema = new Schema({
-    
-    // user's full name
+const mySchema = new Schema(
+    {
     name: {
         type: String,
+        required: true,
+        unique: true,
     },
-
-    // unique email address
     email: { 
         type : String, 
         unique: true,
+        required: true,
         
      },
-
-     // hashed password
     password: { 
         type : String, 
-        required: true
+        required: true,
      },
-
-     // URL to profile image
-    profilePicture: {
+    avatar : {
         type: String,
         default: ""
     },
-
-    // user role
     role: {
         type: String,
-        enum: ["admin", "Member"],
-        default: "Member"
+        enum: ["admin", "user"],
+        default: "admin"
     },
-
-    // club the user is part of
         clubs: [{
              type: String, 
              ref: "Club" 
             }],
-
-    // clubs user has requested to join
-    requests: [{
-        type: String, 
-        ref: "Club"
-    }],
-
-    // user creation timestamp
     createdAt: { 
         type: Date,
          default: Date.now 
         },
-
-        updatedAt: {
-            type: Date,
-            default: Date.now
-        }
 });
 
 module.exports = model('user', mySchema );

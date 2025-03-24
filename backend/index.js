@@ -11,7 +11,7 @@ const port = 5000;
 // middleware
 
 app.use(cors({
-    origin: 'http://localhost:3000'
+    origin: 'http://localhost:3000',
 }));
 
 app.use(express.json());
@@ -31,4 +31,6 @@ app.get('/add', (req, res) => {
 // delete
 
 // starting the server
-app.listen(port, () => { console.log('Server started') });
+app.listen(port, () => {
+     console.log('Server started');
+     });

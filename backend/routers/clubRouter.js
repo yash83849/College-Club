@@ -20,7 +20,6 @@ router.post('/add', (req, res) => {
 
 // getall
 router.get('/getall', (req, res) => {
-
     Model.find()
         .then((result) => {
             res.status(200).json(result);

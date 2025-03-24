@@ -97,7 +97,6 @@ router.post('/authenticate', (req, res) => {
                         }
                     }
                 )
-
             } else {
                 res.status(401), express.json({ message: 'Invalid email or password' });
             }

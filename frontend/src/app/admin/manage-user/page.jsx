@@ -13,9 +13,9 @@ const ManageUser = () => {
 
   const fetchUsers = () => {
     axios.get('http://localhost:5000/user/getall', {
-      // headers: {
-      //     'x-auth-token': token
-      // }
+      headers: {
+          'x-auth-token': token
+      }
     })
       .then((result) => {
         console.log(result.data);
@@ -79,34 +79,35 @@ const ManageUser = () => {
                   <th className="px-6 py-4 text-left">Email</th>
                   <th className="px-6 py-4 text-left">Role</th>
                   <th className="px-6 py-4 text-center">clubs</th>
+                  <th className="px-6 py-4 text-center">Actions</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-100">
                 {/* Example Row */}
                 {
                   userList.map((user) => {
-                  <tr className="hover:bg-gray-50" key={user._id}>
-                    <td className="px-6 py-4">{user.name}</td>
-                    <td className="px-6 py-4 font-medium">{user.email}</td>
-                    <td className="px-6 py-4">{user.role}</td>
-                    <td className="px-6 py-4">{user.clubs}</td>
-                    <td className="px-6 py-4 text-center space-x-2">
-                      <button 
-                      onClick={() => {
-                        updateUser(user._id)
-                      }}
-                      className="bg-blue-500 hover:bg-blue-600 text-white text-xs px-3 py-1 rounded-full shadow">
-                        Edit
-                      </button>
-                      <button 
-                      onClick={() => {
-                        deleteUser(user._id)
-                      }}
-                      className="bg-red-500 hover:bg-red-600 text-white text-xs px-3 py-1 rounded-full shadow">
-                        Delete
-                      </button>
-                    </td>
-                  </tr>
+                    return <tr className="hover:bg-gray-50" key={user._id}>
+                      <td className="px-6 py-4">{user.name}</td>
+                      <td className="px-6 py-4 font-medium">{user.email}</td>
+                      <td className="px-6 py-4">{user.role}</td>
+                      <td className="px-6 py-4">{user.clubs}</td>
+                      <td className="px-6 py-4 text-center space-x-2">
+                        <button
+                          onClick={() => {
+                            updateUser(user._id)
+                          }}
+                          className="bg-blue-500 hover:bg-blue-600 text-white text-xs px-3 py-1 rounded-full shadow">
+                          Edit
+                        </button>
+                        <button
+                          onClick={() => {
+                            deleteUser(user._id)
+                          }}
+                          className="bg-red-500 hover:bg-red-600 text-white text-xs px-3 py-1 rounded-full shadow">
+                          Delete
+                        </button>
+                      </td>
+                    </tr>
                   })
                 }
               </tbody>

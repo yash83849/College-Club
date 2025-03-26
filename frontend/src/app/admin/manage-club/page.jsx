@@ -82,9 +82,8 @@ const ManageClub = () => {
       <table className="min-w-full text-sm text-gray-700">
         <thead className="bg-indigo-100 text-indigo-800 uppercase text-xs font-bold">
           <tr>
-            <th className="px-6 py-4 text-left">#</th>
             <th className="px-6 py-4 text-left">Club Name</th>
-            <th className="px-6 py-4 text-left">Category</th>
+            <th className="px-6 py-4 text-left">Club Type</th>
             <th className="px-6 py-4 text-left">Members</th>
             <th className="px-6 py-4 text-center">Status</th>
             <th className="px-6 py-4 text-center">Actions</th>
@@ -92,45 +91,32 @@ const ManageClub = () => {
         </thead>
         <tbody className="divide-y divide-gray-100">
           {/* Example Row */}
-          <tr className="hover:bg-gray-50">
-            <td className="px-6 py-4">1</td>
-            <td className="px-6 py-4 font-medium">Robotics Club</td>
-            <td className="px-6 py-4">Technology</td>
-            <td className="px-6 py-4">120</td>
-            <td className="px-6 py-4 text-center">
-              <span className="inline-block px-3 py-1 text-xs font-semibold bg-green-100 text-green-700 rounded-full">
-                Active
-              </span>
-            </td>
+          {
+            clubList.map((club) => {
+          <tr className="hover:bg-gray-50" key={club._id}>
+            <td className="px-6 py-4">{club.clubname}</td>
+            <td className="px-6 py-4 font-medium">{club.clubtype}</td>
+            <td className="px-6 py-4">{club.members}</td>
             <td className="px-6 py-4 text-center space-x-2">
-              <button className="bg-blue-500 hover:bg-blue-600 text-white text-xs px-3 py-1 rounded-full shadow">
+              <button 
+              onClick={() => {
+                updateClub(club._id)
+              }}
+              className="bg-blue-500 hover:bg-blue-600 text-white text-xs px-3 py-1 rounded-full shadow">
                 Edit
               </button>
-              <button className="bg-red-500 hover:bg-red-600 text-white text-xs px-3 py-1 rounded-full shadow">
+              <button 
+              onClick={() => {
+                deleteClub(club._id)
+              }}
+              className="bg-red-500 hover:bg-red-600 text-white text-xs px-3 py-1 rounded-full shadow">
                 Delete
               </button>
             </td>
           </tr>
-          {/* Additional Rows */}
-          <tr className="hover:bg-gray-50">
-            <td className="px-6 py-4">2</td>
-            <td className="px-6 py-4 font-medium">Music Society</td>
-            <td className="px-6 py-4">Arts</td>
-            <td className="px-6 py-4">95</td>
-            <td className="px-6 py-4 text-center">
-              <span className="inline-block px-3 py-1 text-xs font-semibold bg-yellow-100 text-yellow-700 rounded-full">
-                Pending
-              </span>
-            </td>
-            <td className="px-6 py-4 text-center space-x-2">
-              <button className="bg-blue-500 hover:bg-blue-600 text-white text-xs px-3 py-1 rounded-full shadow">
-                Edit
-              </button>
-              <button className="bg-red-500 hover:bg-red-600 text-white text-xs px-3 py-1 rounded-full shadow">
-                Delete
-              </button>
-            </td>
-          </tr>
+
+            })
+            }
         </tbody>
       </table>
     </div>

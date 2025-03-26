@@ -3,67 +3,36 @@ import React from 'react'
 const NotFound = () => {
   return (
     <div>
-      <div className="max-w-3xl flex flex-col mx-auto size-full">
-  {/* ========== HEADER ========== */}
-  <header className="mb-auto flex justify-center z-50 w-full py-4">
-    <nav className="px-4 sm:px-6 lg:px-8">
-      <a
-        className="flex-none text-xl font-semibold sm:text-3xl dark:text-white"
-        href="#"
-        aria-label="Brand"
-      >
-        Page Not Found
-      </a>
-    </nav>
-  </header>
-  {/* ========== END HEADER ========== */}
-  {/* ========== MAIN CONTENT ========== */}
-  <main id="content">
-    <div className="text-center py-10 px-4 sm:px-6 lg:px-8">
-      <h1 className="block text-7xl font-bold text-gray-800 sm:text-9xl dark:text-white">
-        404
-      </h1>
-      <p className="mt-3 text-gray-600 dark:text-neutral-400">
-        Oops, something went wrong.
-      </p>
-      <p className="text-gray-600 dark:text-neutral-400">
-        Sorry, we couldn't find your page.
-      </p>
-      <div className="mt-5 flex flex-col justify-center items-center gap-2 sm:flex-row sm:gap-3">
-        <a
-          className="w-full sm:w-auto py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-hidden focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none"
-          href="../examples.html"
-        >
-          <svg
-            className="shrink-0 size-4"
-            xmlns="http://www.w3.org/2000/svg"
-            width={24}
-            height={24}
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth={2}
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path d="m15 18-6-6 6-6" />
-          </svg>
-          Back to Home Page
-        </a>
-      </div>
-    </div>
-  </main>
-  {/* ========== END MAIN CONTENT ========== */}
-  {/* ========== FOOTER ========== */}
-  <footer className="mt-auto text-center py-5">
-    <div className="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8">
-      <p className="text-sm text-gray-500 dark:text-neutral-500">
-        © All Rights Reserved. 2022.
-      </p>
-    </div>
-  </footer>
-  {/* ========== END FOOTER ========== */}
-</div>
+<>
+  <meta charSet="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>404 Not Found</title>
+  <link
+    href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+    rel="stylesheet"
+  />
+  <style
+    dangerouslySetInnerHTML={{
+      __html:
+        "\n        @keyframes bounce {\n            0%, 100% {\n                transform: translateY(0);\n            }\n            50% {\n                transform: translateY(-20px);\n            }\n        }\n        .bounce {\n            animation: bounce 0.5s infinite;\n        }\n    "
+    }}
+  />
+  <div className="text-center">
+    <h1 className="text-9xl font-bold text-gray-800 bounce">404</h1>
+    <p className="mt-4 text-2xl text-gray-600">Oops! Page not found.</p>
+    <p className="mt-2 text-gray-500">
+      The page you are looking for does not exist.
+    </p>
+    <a
+      href="/"
+      className="mt-6 inline-block px-6 py-3 text-lg font-semibold text-white bg-blue-500 rounded-lg shadow-lg hover:bg-blue-600 transition duration-300"
+    >
+      Go Back Home
+    </a>
+  </div>
+</>
+
+
 
     </div>
   )

@@ -32,7 +32,7 @@ router.get('/getall', (req, res) => {
 
 // : denotes url parameter
 router.get('/getbyclub/:club', (req, res) => {
-    Model.find({ city: req.params.city })
+    Model.find({ club: req.params.club })
         .then((result) => {
             res.status(200).json(result);
         }).catch((err) => {

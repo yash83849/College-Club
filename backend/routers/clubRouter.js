@@ -30,8 +30,8 @@ router.get('/getall', (req, res) => {
 });
 
 // : denotes url parameter
-router.get('/getbycity/:city', (req, res) => {
-    Model.find({ city: req.params.city })
+router.get('/getbyclubtype/:clubtype', (req, res) => {
+    Model.find({ clubtype: req.params.clubtype })
         .then((result) => {
             res.status(200).json(result);
         }).catch((err) => {

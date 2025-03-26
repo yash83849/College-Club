@@ -114,20 +114,20 @@ const Footer = () => {
             </a>
           </div>
           <div>
-            <a
-              href="#"
+            <Link
+              href="login"
               className="text-gray-400 transition duration-100 hover:text-indigo-500 active:text-indigo-600"
             >
               Login
-            </a>
+            </Link>
           </div>
           <div>
-            <a
-              href="#"
+            <Link
+              href="signup"
               className="text-gray-400 transition duration-100 hover:text-indigo-500 active:text-indigo-600"
             >
-              Pricing
-            </a>
+              Sign Up
+            </Link>
           </div>
           <div>
             <a

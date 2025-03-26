@@ -36,136 +36,108 @@ const Login = () => {
 
   return (
     <div className='max-w-lg mx-auto'>
-      <div className="mt-7 bg-white border border-gray-200 rounded-xl shadow-sm dark:bg-neutral-900 dark:border-neutral-700">
-        <div className="p-4 sm:p-7">
-          <div className="text-center">
-            <h1 className="block text-2xl font-bold text-gray-800 dark:text-white">
-              Sign in
-            </h1>
-            <p className="mt-2 text-sm text-gray-600 dark:text-neutral-400">
-              Don't have an account yet?
-              <Link
-                className="text-blue-600 decoration-2 hover:underline focus:outline-none focus:underline font-medium dark:text-blue-500"
-                href="signup"
-              >
-                Sign up here
-              </Link>
-            </p>
+     <>
+  {/* component */}
+  <link rel="preconnect" href="https://rsms.me/" />
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+  <style
+    dangerouslySetInnerHTML={{
+      __html:
+        "\n    :root { font-family: 'Inter', sans-serif; }\n@supports (font-variation-settings: normal) {\n  :root { font-family: 'Inter var', sans-serif; }\n}\n"
+    }}
+  />
+  <div className="max-w-lg mx-auto my-10 bg-white p-8 rounded-xl shadow shadow-slate-300">
+    <h1 className="text-4xl font-medium">Login</h1>
+    <p className="text-slate-500">Hi, Welcome back 👋</p>
+    
+    <form onSubmit={loginForm.handleSubmit} className="my-10">
+      <div className="flex flex-col space-y-5">
+        <label htmlFor="email">
+          <p className="font-medium text-slate-700 pb-2">Email address</p>
+          <input
+            id="email"
+            type="email"
+            onChange={loginForm.handleChange}
+            value={loginForm.values.email}
+            className="w-full py-3 border border-slate-200 rounded-lg px-3 focus:outline-none focus:border-slate-500 hover:shadow"
+            placeholder="Enter email address"
+          />
+        </label>
+        <label htmlFor="password">
+          <p className="font-medium text-slate-700 pb-2">Password</p>
+          <input
+            id="password"
+            type="password"
+            onChange={loginForm.handleChange}
+            value={loginForm.values.password}
+            className="w-full py-3 border border-slate-200 rounded-lg px-3 focus:outline-none focus:border-slate-500 hover:shadow"
+            placeholder="Enter your password"
+          />
+        </label>
+        <div className="flex flex-row justify-between">
+          <div>
+            <label htmlFor="remember" className="">
+              <input
+                type="checkbox"
+                id="remember"
+                className="w-4 h-4 border-slate-200 focus:bg-indigo-600"
+              />
+              Remember me
+            </label>
           </div>
-          <div className="mt-5">
-            
-            {/* Form */}
-            <form onSubmit={loginForm.handleSubmit}>
-              <div className="grid gap-y-4">
-                {/* Form Group */}
-                <div>
-                  <label
-                    htmlFor="email"
-                    className="block text-sm mb-2 dark:text-white"
-                  >
-                    Email address
-                  </label>
-                  <div className="relative">
-                    <input
-                      type="email"
-                      id="email"
-                      onChange={loginForm.handleChange}
-                      value={loginForm.values.email}
-                      className="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
-                      required=""
-                      aria-describedby="email-error"
-                    />
-                    <div className="hidden absolute inset-y-0 end-0 pointer-events-none pe-3">
-                      <svg
-                        className="size-5 text-red-500"
-                        width={16}
-                        height={16}
-                        fill="currentColor"
-                        viewBox="0 0 16 16"
-                        aria-hidden="true"
-                      >
-                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" />
-                      </svg>
-                    </div>
-                  </div>
-                  <p className="hidden text-xs text-red-600 mt-2" id="email-error">
-                    Please include a valid email address so we can get back to you
-                  </p>
-                </div>
-                {/* End Form Group */}
-                {/* Form Group */}
-                <div>
-                  <div className="flex justify-between items-center">
-                    <label
-                      htmlFor="password"
-                      className="block text-sm mb-2 dark:text-white"
-                    >
-                      Password
-                    </label>
-                    <a
-                      className="inline-flex items-center gap-x-1 text-sm text-blue-600 decoration-2 hover:underline focus:outline-none focus:underline font-medium dark:text-blue-500"
-                      href="../examples/html/recover-account.html"
-                    >
-                      Forgot password?
-                    </a>
-                  </div>
-                  <div className="relative">
-                    <input
-                      type="password"
-                      id="password"
-                      onChange={loginForm.handleChange}
-                      value={loginForm.values.password}
-                      className="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
-                      required=""
-                      aria-describedby="password-error"
-                    />
-                    <div className="hidden absolute inset-y-0 end-0 pointer-events-none pe-3">
-                      <svg
-                        className="size-5 text-red-500"
-                        width={16}
-                        height={16}
-                        fill="currentColor"
-                        viewBox="0 0 16 16"
-                        aria-hidden="true"
-                      >
-                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" />
-                      </svg>
-                    </div>
-                  </div>
-                  <p className="hidden text-xs text-red-600 mt-2" id="password-error">
-                    8+ characters required
-                  </p>
-                </div>
-                {/* End Form Group */}
-                {/* Checkbox */}
-                <div className="flex items-center">
-                  <div className="flex">
-                    <input
-                      id="remember-me"
-                      name="remember-me"
-                      type="checkbox"
-                      className="shrink-0 mt-0.5 border-gray-200 rounded text-blue-600 focus:ring-blue-500 dark:bg-neutral-800 dark:border-neutral-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800"
-                    />
-                  </div>
-                  <div className="ms-3">
-                    <label htmlFor="remember-me" className="text-sm dark:text-white">
-                      Remember me
-                    </label>
-                  </div>
-                </div>
-                {/* End Checkbox */}
-                <button
-                  type="submit"
-                  className="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none"
-                >
-                  Sign in
-                </button>
-              </div>
-            </form>
-            {/* End Form */}
+          <div>
+            <a href="#" className="font-medium text-indigo-600">
+              Forgot Password?
+            </a>
           </div>
         </div>
+        <button className="w-full py-3 font-medium text-white bg-indigo-600 hover:bg-indigo-500 rounded-lg border-indigo-500 hover:shadow inline-flex space-x-2 items-center justify-center">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            strokeWidth={2}
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"
+            />
+          </svg>
+          <span>Login</span>
+        </button>
+        <p className="text-center">
+          Not registered yet?{" "}
+          <Link
+            href="signup"
+            className="text-indigo-600 font-medium inline-flex space-x-1 items-center"
+          >
+            <span>Register now </span>
+            <span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-4 w-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                />
+              </svg>
+            </span>
+          </Link>
+        </p>
       </div>
+    </form>
+  </div>
+</>
+
 
     </div>
   )

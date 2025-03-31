@@ -61,7 +61,7 @@ const Signup = () => {
   });
 
   return (
-    
+
     <div className='bg-white h-screen pt-10'>
 
       <div className="max-w-lg mx-auto bg-white border border-gray-200 rounded-xl shadow-sm dark:bg-neutral-900 dark:border-neutral-700">
@@ -81,7 +81,7 @@ const Signup = () => {
             </p>
           </div>
           <div className="mt-5">
-            
+
             {/* Form */}
             <form onSubmit={signupForm.handleSubmit} >
               <div className="grid gap-y-4">

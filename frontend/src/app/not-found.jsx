@@ -1,39 +1,33 @@
+import Link from 'next/link';
 import React from 'react'
 
 const NotFound = () => {
   return (
-    <div>
-<>
-  <meta charSet="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>404 Not Found</title>
-  <link
-    href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
-    rel="stylesheet"
-  />
-  <style
-    dangerouslySetInnerHTML={{
-      __html:
-        "\n        @keyframes bounce {\n            0%, 100% {\n                transform: translateY(0);\n            }\n            50% {\n                transform: translateY(-20px);\n            }\n        }\n        .bounce {\n            animation: bounce 0.5s infinite;\n        }\n    "
-    }}
-  />
-  <div className="text-center">
-    <h1 className="text-9xl font-bold text-gray-800 bounce">404</h1>
-    <p className="mt-4 text-2xl text-gray-600">Oops! Page not found.</p>
-    <p className="mt-2 text-gray-500">
-      The page you are looking for does not exist.
-    </p>
-    <a
-      href="/"
-      className="mt-6 inline-block px-6 py-3 text-lg font-semibold text-white bg-blue-500 rounded-lg shadow-lg hover:bg-blue-600 transition duration-300"
-    >
-      Go Back Home
-    </a>
-  </div>
-</>
-
-
-
+    <div >
+      <section>
+        {/* Container */}
+        <div className="px-5 py-16 md:px-10 md:py-20">
+          {/* Component */}
+          <div className="mx-auto flex w-full max-w-3xl flex-col items-center text-center">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQojyTOvRObWT7x4hU1PBZ1Kkg_VmiiwMffRA&s"
+              alt=""
+              className="mx-auto rounded-full mb-8 inline-block h-56 w-56 flex-none object-cover"
+            />
+            <h1 className="mb-4 text-4xl font-bold md:text-6xl">404 Error</h1>
+            <p className="mx-auto mb-5 max-w-lg text-sm text-gray-500 sm:text-base md:mb-6 lg:mb-8">
+              Server Error
+              please try again
+            </p>
+            <Link
+              href="login"
+              className="inline-block items-center rounded-md bg-black px-8 py-4 text-center font-semibold text-white"
+            >
+              Back Home
+            </Link>
+          </div>
+        </div>
+      </section>
     </div>
   )
 }

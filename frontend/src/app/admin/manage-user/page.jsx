@@ -39,7 +39,7 @@ const ManageUser = () => {
   }, []);
 
   const deleteUser = async (id) => {
-    const res = await axios.delete(http://localhost:5000/user/delete/${id});
+    const res = await axios.delete(`http://localhost:5000/user/delete/${id}`);
     if (res.status === 200) {
       toast.success('User deleted successfully');
       fetchUsers();
@@ -49,7 +49,7 @@ const ManageUser = () => {
   }
 
   const updateUser = async (id) => {
-    const res = await axios.put(http://localhost:5000/user/put/${id});
+    const res = await axios.put(`http://localhost:5000/user/put/${id}`);
     if (res.status === 200) {
       toast.success('User update successfully');
       fetchUsers();

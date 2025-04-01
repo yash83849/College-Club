@@ -38,7 +38,7 @@ const ManageClub = () => {
   }, []);
 
   const deleteClub = async (id) => {
-    const res = await axios.delete(http://localhost:5000/club/delete/${id});
+    const res = await axios.delete(`http://localhost:5000/club/delete/${id}`);
     if (res.status === 200) {
       toast.success('Club deleted successfully');
       fetchClubs();
@@ -48,7 +48,7 @@ const ManageClub = () => {
   }
 
   const updateClub = async (id) => {
-    const res = await axios.put(http://localhost:5000/club/put/${id});
+    const res = await axios.put(`http://localhost:5000/club/put/${id}`);
     if (res.status === 200) {
       toast.success('Club update successfully');
       fetchClubs();

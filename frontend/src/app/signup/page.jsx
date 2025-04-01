@@ -12,7 +12,7 @@ const SignupSchema = Yup.object().shape({
   name: Yup.string()
     .min(2, 'Too Short!')
     .max(50, 'Too Long!')
-    .required('fill the Name'),
+    .required('Fill the name'),
   email: Yup.string().email('Invalid email').required('Required'),
   password: Yup.string().required('Password is required')
     .matches(/[a-z]/, 'lowercase letter is required')
@@ -25,9 +25,7 @@ const SignupSchema = Yup.object().shape({
 });
 
 const Signup = () => {
-
-  const router = useRouter();
-
+const router = useRouter();
   // initializing formik
   const signupForm = useFormik({
     initialValues: {
@@ -39,11 +37,11 @@ const Signup = () => {
     onSubmit: (values, { resetForm, setSubmitting }) => {
 
       // setTimeout(() => {
-      //   console.log(values);
-      //   resetForm();
-      // }, 2000);
+      // console.log(values);
+      // resetForm();
+      //}, 2000);
 
-      // fetch
+      //fetch
       axios.post('http://localhost:5000/user/add', values)
         .then((result) => {
           toast.success('User registered successfully');
@@ -53,8 +51,8 @@ const Signup = () => {
           console.log(err);
           toast.error('User registration failed');
           setSubmitting(false);
-        });
 
+        });
       // send values to backend
     },
     validationSchema: SignupSchema
@@ -68,7 +66,7 @@ const Signup = () => {
         <div className="p-4 sm:p-7">
           <div className="text-center">
             <h1 className="block text-2xl font-bold text-gray-800 dark:text-white">
-              Sign Up
+              Sign up
             </h1>
             <p className="mt-2 text-sm text-gray-600 dark:text-neutral-400">
               Already have an account?

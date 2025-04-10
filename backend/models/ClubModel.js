@@ -13,12 +13,12 @@ const mySchema = new Schema({
      },
     status: {
         type: String,
-        default: ""
+        default: "false"
     },
 
      //URL to the club logo/image
-     clublogo : {
-        type: String,
+     image : {
+        type: Array,
      },
 
     // type of club

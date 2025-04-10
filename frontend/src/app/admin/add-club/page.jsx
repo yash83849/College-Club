@@ -14,8 +14,8 @@ const Addclub = () => {
             clubtype: '',
             // createdAt: '',
             logo: '',
-            // image: '',
-            members: '',
+            image: '',
+            // members: '',
             // events: '',
             createdBy: '',
         },
@@ -56,7 +56,7 @@ const Addclub = () => {
         if (res.status === 200) {
             console.log(res.data);
             toast.success('Image uploaded successfully');
-            clubForm.setFieldValue('logo', res.data.url);
+            clubForm.setFieldValue('image', res.data.url);
         }
     }
 
@@ -119,7 +119,7 @@ const Addclub = () => {
         </select>
       </div>
         {/* Members */}
-        <div>
+        {/* <div>
         <label 
         htmlFor="members"
         className="block text-gray-700 font-medium mb-1">Members
@@ -132,7 +132,7 @@ const Addclub = () => {
           placeholder="Enter Members"
           className="w-full px-4 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500"
         />
-        </div>
+        </div> */}
         {/* Created By */}
         <div>
         <label 
@@ -168,7 +168,7 @@ const Addclub = () => {
           disabled={clubForm.isSubmitting}
           className="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 rounded-xl transition duration-300"
         >
-            {clubForm.isSubmitting ? (<IconLoader3 className='animate-spin' />) : (<IconCheck/>)}
+            {clubForm.isSubmitting }
           Add Club
         </button>
       </div>

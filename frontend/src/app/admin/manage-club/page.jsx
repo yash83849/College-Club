@@ -3,10 +3,11 @@ import axios from 'axios';
 import { useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
+import Addclub from '../add-club/page';
 
 const ManageClub = () => {
 
-  const [clubList, setClubList] = useState([]);
+  const [ClubList, setClubList] = useState([]);
   const token = localStorage.getItem('token');
 
   const router = useRouter();
@@ -28,9 +29,6 @@ const ManageClub = () => {
         }
       });
 
-
-
-
   }
 
   useEffect(() => {
@@ -47,14 +45,16 @@ const ManageClub = () => {
     }
   }
 
-  const updateClub = async (id) => {
-    const res = await axios.put(`http://localhost:5000/club/put/${id}`);
-    if (res.status === 200) {
-      toast.success('Club update successfully');
+  const approveClub =  (id, status) => {
+     axios.put('http://localhost:5000/club/update/' + id, {approved: status})
+    .then((result) => {
+      toast.success('club updated successfully');
       fetchClubs();
-    } else {
-      toast.error('Failed to update Club');
-    }
+    }).catch((err) => {
+      toast.error('error occured');
+      console.log(err);
+    });
+  
   }
 
 
@@ -65,7 +65,9 @@ const ManageClub = () => {
           {/* Header */}
           <div className="flex justify-between items-center mb-6">
             <h2 className="text-3xl font-bold text-gray-800">Manage Clubs</h2>
-            <button className="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-xl text-sm font-medium shadow">
+            <button 
+            
+            className="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-xl text-sm font-medium shadow">
               + Add Club
             </button>
           </div>
@@ -78,8 +80,8 @@ const ManageClub = () => {
             />
           </div>
           {/* Table */}
-          <div className="overflow-x-auto">
-            <table className="min-w-full text-sm text-gray-700">
+          <div className="overflow-x-auto rounded-2xl">
+            <table className="min-w-full text-sm text-gray-700 ">
               <thead className="bg-indigo-100 text-indigo-800 uppercase text-xs font-bold">
                 <tr>
                   <th className="px-6 py-4 text-left">Club Name</th>
@@ -92,7 +94,7 @@ const ManageClub = () => {
               <tbody className="divide-y divide-gray-100">
                 {/* Example Row */}
                 {
-                  clubList.map((club) => {
+                  ClubList.map((club) => {
                    return <tr className="hover:bg-gray-50" key={club._id}>
                       <td className="px-6 py-4">{club.name}</td>
                       <td className="px-6 py-4 font-medium">{club.clubtype}</td>
@@ -101,10 +103,11 @@ const ManageClub = () => {
                       <td className="px-6 py-4 text-center space-x-2">
                         <button
                           onClick={() => {
-                            updateClub(club._id)
+                            approveClub(club._id, !club.approved)
                           }}
                           className="bg-blue-500 hover:bg-blue-600 text-white text-xs px-3 py-1 rounded-full shadow">
-                          Edit
+                          {club.approved ? 'Unapprove' : 'Approve'}
+                        
                         </button>
                         <button
                           onClick={() => {

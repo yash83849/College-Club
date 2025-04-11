@@ -1,42 +1,40 @@
-const { default: mongoose } = require('mongoose');
-const { Schema, model } = require('../connection');
+const { Schema, model, Types } = require('../connection');
 
 const mySchema = new Schema({
     name: {
         type: String,
         required: true,
-        
-    }, 
-    description: { 
+
+    },
+    description: {
         type: String,
         required: true
-     },
+    },
     status: {
         type: String,
         default: "false"
     },
 
-     //URL to the club logo/image
-     image : {
-        type: Array,
-     },
+    //URL to the club logo/image
+    image: {
+        type: String,
+    },
 
     // type of club
     clubtype: {
         type: String,
         // enum: ["sports", "cultural", "Tech", "Music", "other"]
     },
-    
+
     // club creator (admin)
     createdBy: {
         type: String,
-        
+
     },
 
     // club members
     members: {
-        type: String,
-    
+        type: [{ type: Types.ObjectId, ref: 'user' }],
     },
 
     // club events
@@ -44,13 +42,10 @@ const mySchema = new Schema({
         type: String,
     },
 
-  
-
-   
     // club creation date
     createdAt: { type: Date, default: Date.now },
 
-    
+
 });
 
 module.exports = model('club', mySchema);

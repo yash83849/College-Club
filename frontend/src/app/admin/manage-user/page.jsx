@@ -71,7 +71,7 @@ const ManageUser = () => {
             </button>
           </div>
           {/* Table */}
-          <div className="overflow-x-auto">
+          <div className="overflow-x-auto rounded-2xl">
             <table className="min-w-full text-sm text-gray-700">
               <thead className="bg-indigo-100 text-indigo-800 uppercase text-xs font-bold">
                 <tr>

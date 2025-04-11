@@ -4,6 +4,7 @@ const UserRouter = require('./routers/userRouter');
 const clubRouter = require('./routers/clubRouter');
 const cors = require('cors');
 
+
 // create an express app
 const app = express();
 const port = 5000;

@@ -118,21 +118,7 @@ const Addclub = () => {
           <option value="social" label="social">Social</option>
         </select>
       </div>
-        {/* Members */}
-        <div>
-        <label 
-        htmlFor="members"
-        className="block text-gray-700 font-medium mb-1">Members
-        </label>
-        <input
-          type="text"
-          name="members"
-          onChange={clubForm.handleChange}
-          value={clubForm.values.members}
-          placeholder="Enter Members"
-          className="w-full px-4 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500"
-        />
-        </div>
+       
         {/* Created By */}
         <div>
         <label 

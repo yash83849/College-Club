@@ -1,12 +1,22 @@
 // importing express
 const express = require('express');
+// create an express app
+const app = express();
+const port = 5000;
+
+const { createServer } = require("http");
+const { Server } = require("socket.io");
+const httpServer = createServer(app);
+const io = new Server(httpServer, {
+    cors: {
+        origin: '*'
+    }
+});
+
 const UserRouter = require('./routers/userRouter');
 const clubRouter = require('./routers/clubRouter');
 const cors = require('cors');
 
-// create an express app
-const app = express();
-const port = 5000;
 
 // middleware
 
@@ -17,6 +27,11 @@ app.use(cors({
 app.use(express.json());
 app.use('/user', UserRouter);
 app.use('/club', clubRouter);
+
+io.on("connection", (socket) => {
+    
+    
+  });
 
 // routes or endpoints
 app.get('/', (req, res) => {
@@ -31,6 +46,6 @@ app.get('/add', (req, res) => {
 // delete
 
 // starting the server
-app.listen(port, () => {
-     console.log('Server started');
-     });
+httpServer.listen(port, () => {
+    console.log('Server started');
+});

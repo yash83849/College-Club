@@ -13,6 +13,8 @@ const BrowseClubs = () => {
 
   const router = useRouter();
 
+
+
   const fetchClubs = () => {
     axios.get('http://localhost:5000/club/getall', {
 

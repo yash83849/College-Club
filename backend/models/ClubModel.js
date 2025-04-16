@@ -32,10 +32,7 @@ const mySchema = new Schema({
 
     },
 
-    // club members
-    members: {
-        type: [{ type: Types.ObjectId, ref: 'user' }],
-    },
+   
 
     // club events
     events: {

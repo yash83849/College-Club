@@ -12,11 +12,11 @@ const mySchema = new Schema({
     },
     status: {
         type: String,
-        default: ""
+        default: "false"
     },
 
     //URL to the club logo/image
-    clublogo: {
+    image: {
         type: String,
     },
 

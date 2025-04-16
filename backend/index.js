@@ -19,7 +19,6 @@ const cors = require('cors');
 
 
 // middleware
-
 app.use(cors({
     origin: 'http://localhost:3000',
 }));

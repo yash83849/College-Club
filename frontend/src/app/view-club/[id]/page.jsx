@@ -37,30 +37,10 @@ const ViewClub = () => {
           id="mainImage"
         />
         <div className="flex gap-4 py-4 justify-center overflow-x-auto">
-          <img
-            src={clubDetails.image}
-            alt="Thumbnail 1"
-            className="size-16 sm:size-20 object-cover rounded-md cursor-pointer opacity-60 hover:opacity-100 transition duration-300"
-            // onclick="changeImage(this.src)"
-          />
-          <img
-            src={clubDetails.image}
-            alt="Thumbnail 2"
-            className="size-16 sm:size-20 object-cover rounded-md cursor-pointer opacity-60 hover:opacity-100 transition duration-300"
-            // onclick="changeImage(this.src)"
-          />
-          <img
-            src={clubDetails.image}
-            alt="Thumbnail 3"
-            className="size-16 sm:size-20 object-cover rounded-md cursor-pointer opacity-60 hover:opacity-100 transition duration-300"
-            // onclick="changeImage(this.src)"
-          />
-          <img
-            src=""
-            alt="Thumbnail 4"
-            className="size-16 sm:size-20 object-cover rounded-md cursor-pointer opacity-60 hover:opacity-100 transition duration-300"
-            // onclick="changeImage(this.src)"
-          />
+          
+          
+         
+          
         </div>
       </div>
       {/* Product Details */}

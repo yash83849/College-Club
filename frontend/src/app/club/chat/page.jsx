@@ -13,28 +13,6 @@ const Chat = () => {
     const newSocket = io(process.env.NEXT_PUBLIC_API_URL, { autoConnect: false });
     setSocket(newSocket);
 
-    // Socket.IO logic
-    io.on('connection', (socket) => {
-      console.log('A user connected:', socket.id);
-  
-      // Join a specific room
-      socket.on('joinRoom', (room) => {
-          socket.join(room);
-          console.log(`User ${socket.id} joined room: ${room}`);
-      });
-  
-      // Handle sending messages to a specific room
-      socket.on('sendMessage', ({ room, message, sender }) => {
-          io.to(room).emit('receiveMessage', { message, sender });
-          console.log(`Message sent to room ${room}:`, message);
-      });
-  
-      // Handle disconnection
-      socket.on('disconnect', () => {
-          console.log('A user disconnected:', socket.id);
-      });
-  });
-
     // Connect to the socket
     newSocket.connect();
 

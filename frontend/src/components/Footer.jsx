@@ -4,15 +4,15 @@ import React from 'react'
 const Footer = () => {
   return (
     <div>
-      <div className="bg-gray-900">
+      <div className="bg-white pt-4 sm:pt-10 lg:pt-12">
   <footer className="mx-auto max-w-screen-2xl px-4 md:px-8">
-    <div className="mb-16 grid grid-cols-2 gap-12 pt-10 md:grid-cols-4 lg:grid-cols-6 lg:gap-8 lg:pt-12">
+    <div className="mb-16 grid grid-cols-2 gap-12 border-t pt-10 md:grid-cols-4 lg:grid-cols-6 lg:gap-8 lg:pt-12">
       <div className="col-span-full lg:col-span-2">
         {/* logo - start */}
         <div className="mb-4 lg:-mt-2">
-          <a
+          <Link
             href="/"
-            className="inline-flex items-center gap-2 text-xl font-bold text-gray-100 md:text-2xl"
+            className="inline-flex items-center gap-2 text-xl font-bold text-black md:text-2xl"
             aria-label="logo"
           >
             <svg
@@ -26,7 +26,7 @@ const Footer = () => {
               <path d="M96 0V47L48 94H0V47L48 0H96Z" />
             </svg>
             CCMS
-          </a>
+          </Link>
         </div>
         {/* logo - end */}
         
@@ -81,7 +81,7 @@ const Footer = () => {
             </svg>
           </Link>
           <Link
-          href="https://github.com/Prateekvaish-ai"
+            href="https://github.com/Prateekvaish-ai"
             target="_blank"
             className="text-gray-400 transition duration-100 hover:text-gray-500 active:text-gray-600"
           >
@@ -101,38 +101,38 @@ const Footer = () => {
       </div>
       {/* nav - start */}
       <div>
-        <div className="mb-4 font-bold uppercase tracking-widest text-gray-100">
-          Quick Menu
+        <div className="mb-4 font-bold uppercase tracking-widest text-gray-800">
+          Products
         </div>
         <nav className="flex flex-col gap-4">
           <div>
             <a
               href="#"
-              className="text-gray-400 transition duration-100 hover:text-indigo-500 active:text-indigo-600"
+              className="text-gray-500 transition duration-100 hover:text-indigo-500 active:text-indigo-600"
             >
-              Home
+              Overview
             </a>
-          </div>
-          <div>
-            <Link
-              href="login"
-              className="text-gray-400 transition duration-100 hover:text-indigo-500 active:text-indigo-600"
-            >
-              Login
-            </Link>
-          </div>
-          <div>
-            <Link
-              href="signup"
-              className="text-gray-400 transition duration-100 hover:text-indigo-500 active:text-indigo-600"
-            >
-              Sign Up
-            </Link>
           </div>
           <div>
             <a
               href="#"
-              className="text-gray-400 transition duration-100 hover:text-indigo-500 active:text-indigo-600"
+              className="text-gray-500 transition duration-100 hover:text-indigo-500 active:text-indigo-600"
+            >
+              Solutions
+            </a>
+          </div>
+          <div>
+            <a
+              href="#"
+              className="text-gray-500 transition duration-100 hover:text-indigo-500 active:text-indigo-600"
+            >
+              Pricing
+            </a>
+          </div>
+          <div>
+            <a
+              href="#"
+              className="text-gray-500 transition duration-100 hover:text-indigo-500 active:text-indigo-600"
             >
               Customers
             </a>
@@ -142,80 +142,46 @@ const Footer = () => {
       {/* nav - end */}
       {/* nav - start */}
       <div>
-        <div className="mb-4 font-bold uppercase tracking-widest text-gray-100">
-          Services
+        <div className="mb-4 font-bold uppercase tracking-widest text-gray-800">
+          Company
         </div>
         <nav className="flex flex-col gap-4">
           <div>
             <a
               href="#"
-              className="text-gray-400 transition duration-100 hover:text-indigo-500 active:text-indigo-600"
+              className="text-gray-500 transition duration-100 hover:text-indigo-500 active:text-indigo-600"
             >
-              Clubs
+              About
             </a>
           </div>
           <div>
             <a
               href="#"
-              className="text-gray-400 transition duration-100 hover:text-indigo-500 active:text-indigo-600"
+              className="text-gray-500 transition duration-100 hover:text-indigo-500 active:text-indigo-600"
             >
-              Events
+              Investor Relations
             </a>
           </div>
           <div>
             <a
               href="#"
-              className="text-gray-400 transition duration-100 hover:text-indigo-500 active:text-indigo-600"
+              className="text-gray-500 transition duration-100 hover:text-indigo-500 active:text-indigo-600"
             >
-              News
+              Jobs
             </a>
           </div>
           <div>
             <a
               href="#"
-              className="text-gray-400 transition duration-100 hover:text-indigo-500 active:text-indigo-600"
+              className="text-gray-500 transition duration-100 hover:text-indigo-500 active:text-indigo-600"
             >
-              Gallery
-            </a>
-          </div>
-          
-        </nav>
-      </div>
-      {/* nav - end */}
-      {/* nav - start */}
-      <div>
-        <div className="mb-4 font-bold uppercase tracking-widest text-gray-100">
-         Legal
-        </div>
-        <nav className="flex flex-col gap-4">
-          <div>
-            <a
-              href="#"
-              className="text-gray-400 transition duration-100 hover:text-indigo-500 active:text-indigo-600"
-            >
-              Terms & Conditions
+              Press
             </a>
           </div>
           <div>
             <a
               href="#"
-              className="text-gray-400 transition duration-100 hover:text-indigo-500 active:text-indigo-600"
-            >
-              Privacy Policy
-            </a>
-          </div>
-          <div>
-            <a
-              href="#"
-              className="text-gray-400 transition duration-100 hover:text-indigo-500 active:text-indigo-600"
-            >
-              FAQs
-            </a>
-          </div>
-          <div>
-            <a
-              href="#"
-              className="text-gray-400 transition duration-100 hover:text-indigo-500 active:text-indigo-600"
+              className="text-gray-500 transition duration-100 hover:text-indigo-500 active:text-indigo-600"
             >
               Blog
             </a>
@@ -225,22 +191,81 @@ const Footer = () => {
       {/* nav - end */}
       {/* nav - start */}
       <div>
-        <div className="mb-4 font-bold uppercase tracking-widest text-gray-100">
-          Information
+        <div className="mb-4 font-bold uppercase tracking-widest text-gray-800">
+          Support
         </div>
         <nav className="flex flex-col gap-4">
-          <div className="text-gray-400 transition duration-100 hover:text-indigo-500 active:text-indigo-600">
-            Naipalapur - Sitapur 
-            261001,
-            Uttar Pradesh,
-            India  
+          <div>
+            <a
+              href="#"
+              className="text-gray-500 transition duration-100 hover:text-indigo-500 active:text-indigo-600"
+            >
+              Contact
+            </a>
+          </div>
+          <div>
+            <a
+              href="#"
+              className="text-gray-500 transition duration-100 hover:text-indigo-500 active:text-indigo-600"
+            >
+              Documentation
+            </a>
+          </div>
+          <div>
+            <a
+              href="#"
+              className="text-gray-500 transition duration-100 hover:text-indigo-500 active:text-indigo-600"
+            >
+              Chat
+            </a>
+          </div>
+          <div>
+            <a
+              href="#"
+              className="text-gray-500 transition duration-100 hover:text-indigo-500 active:text-indigo-600"
+            >
+              FAQ
+            </a>
+          </div>
+        </nav>
+      </div>
+      {/* nav - end */}
+      {/* nav - start */}
+      <div>
+        <div className="mb-4 font-bold uppercase tracking-widest text-gray-800">
+          Legal
+        </div>
+        <nav className="flex flex-col gap-4">
+          <div>
+            <a
+              href="#"
+              className="text-gray-500 transition duration-100 hover:text-indigo-500 active:text-indigo-600"
+            >
+              Terms of Service
+            </a>
+          </div>
+          <div>
+            <a
+              href="#"
+              className="text-gray-500 transition duration-100 hover:text-indigo-500 active:text-indigo-600"
+            >
+              Privacy Policy
+            </a>
+          </div>
+          <div>
+            <a
+              href="#"
+              className="text-gray-500 transition duration-100 hover:text-indigo-500 active:text-indigo-600"
+            >
+              Cookie settings
+            </a>
           </div>
         </nav>
       </div>
       {/* nav - end */}
     </div>
-    <div className="border-t border-gray-800 py-8 text-center text-sm text-gray-400">
-      © 2025 - Present Prateekvaish . All rights reserved.
+    <div className="border-t py-8 text-center text-sm text-gray-400">
+      © 2021 - Present Flowrift. All rights reserved.
     </div>
   </footer>
 </div>

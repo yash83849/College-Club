@@ -30,7 +30,27 @@ app.use('/club', clubRouter);
 
 io.on("connection", (socket) => {
     
-    
+    // Socket.IO logic
+io.on('connection', (socket) => {
+    console.log('A user connected:', socket.id);
+
+    // Join a specific room
+    socket.on('joinRoom', (room) => {
+        socket.join(room);
+        console.log(`User ${socket.id} joined room: ${room}`);
+    });
+
+    // Handle sending messages to a specific room
+    socket.on('sendMessage', ({ room, message, sender }) => {
+        io.to(room).emit('receiveMessage', { message, sender });
+        console.log(`Message sent to room ${room}:`, message);
+    });
+
+    // Handle disconnection
+    socket.on('disconnect', () => {
+        console.log('A user disconnected:', socket.id);
+    });
+});
   });
 
 // routes or endpoints

@@ -16,6 +16,10 @@ const mySchema = new AnnouncementSchema({
         type: Date,
         default: Date.now,
     },
+    clubName: {
+        type: String,
+        required: true,
+    }
 });
 
 module.exports = model('Announcement', mySchema);

@@ -6,4 +6,4 @@ const socket = () => {
   )
 }
 
-export default socket
+export default socket;

@@ -1,5 +1,5 @@
 const express = require('express');
-const Announcement = require('../models/AnnouncementModel');
+const Model = require('../models/AnnouncementModel');
 const jwt = require('jsonwebtoken');
 const verifyToken = require('../middlewares/verifyToken');
 require('dotenv').config();
@@ -13,14 +13,12 @@ router.post('/add', verifyToken, async (req, res) => {
 
         // Create a new announcement
         const newAnnouncement = new Announcement({
-            
-        
             clubId,
             createdBy: req.user._id, // Extracted from the token
         });
 
         const savedAnnouncement = await newAnnouncement.save();
-        res.status(201).json(savedAnnouncement);
+        res.status(200).json(savedAnnouncement);
     } catch (err) {
         console.error(err);
         res.status(500).json({ error: 'Failed to create announcement' });

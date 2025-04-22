@@ -1,25 +1,29 @@
-const { AnnouncementSchema, model, Types } = require('../connection');
+const { Schema, model, Types } = require('../connection');
 
-const mySchema = new AnnouncementSchema({
-    
+const mySchema = new Schema({
+
     clubId: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Club', // Reference to the Announcement model
+        type: Types.ObjectId,
+        ref: 'Club', 
+        required: true,
+    },
+    description: {
+        type: String,
         required: true,
     },
     announcementBy: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User', // Reference to the Announcement model
+        type: Types.ObjectId,
+        ref: 'User',
+        required: true,
+    },
+    title: {
+        type: String,
         required: true,
     },
     createdAt: {
         type: Date,
         default: Date.now,
     },
-    clubName: {
-        type: String,
-        required: true,
-    }
 });
 
-module.exports = model('Announcement', mySchema);
+module.exports = model('announcement', mySchema);

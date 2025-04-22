@@ -15,6 +15,7 @@ const io = new Server(httpServer, {
 
 const UserRouter = require('./routers/userRouter');
 const clubRouter = require('./routers/clubRouter');
+const announcementRouter = require('./routers/announcementRouter');
 const cors = require('cors');
 
 
@@ -27,6 +28,7 @@ app.use(cors({
 app.use(express.json());
 app.use('/user', UserRouter);
 app.use('/club', clubRouter);
+app.use('/announcement', announcementRouter);
 
 io.on("connection", (socket) => {
     

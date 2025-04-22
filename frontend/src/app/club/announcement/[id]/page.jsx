@@ -1,127 +1,125 @@
 'use client';
-import {  IconCheck ,IconLoader3 } from '@tabler/icons-react';
-import React, { useState } from 'react';
 import axios from 'axios';
-import { useFormik } from 'formik'
-import { useRouter } from 'next/navigation';
+import { useFormik } from 'formik';
+import { useParams } from 'next/navigation';
+import React, { useEffect, useState } from 'react';
+import toast from 'react-hot-toast';
+import { jwtDecode } from 'jwt-decode';
 
 const Announcement = () => {
-  const [formData, setFormData] = useState({
-    announcedby: '',
-    clubname: '',
-    clubId: '',
-  });
-  const [loading, setLoading] = useState(false);
-  const router = useRouter();
+  const { id } = useParams();
+  const [userData, setUserData] = useState(null);
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-
-    try {
-      const token = localStorage.getItem('token'); // Assuming the token is stored in localStorage
-      if (!token) {
-        alert('You must be logged in to create an announcement.');
-        return;
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      try {
+        const decoded = jwtDecode(token);
+        setUserData(decoded);
+      } catch (error) {
+        console.error('Error decoding token:', error);
+        toast.error('Authentication error');
       }
-
-      await axios.post(
-        `${process.env.NEXT_PUBLIC_API_URL}/announcement/add`,
-        formData,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
-
-      alert('Announcement created successfully!');
-      router.push('/club/announcement'); // Redirect to the announcements page
-    } catch (err) {
-      console.error('Error creating announcement:', err);
-      alert('Failed to create announcement. Please try again.');
-    } finally {
-      setLoading(false);
     }
-  };
+  }, []);
+
+  const announcementForm = useFormik({
+    initialValues: {
+      title: '',
+      description: '',
+    },
+    onSubmit: async (values, { resetForm, setSubmitting }) => {
+      try {
+        const token = localStorage.getItem('token');
+        if (!token) {
+          toast.error('Please login to create an announcement');
+          return;
+        }
+
+        const response = await axios.post(
+          `${process.env.NEXT_PUBLIC_API_URL}/announcement/add`,
+          {
+            ...values,
+            clubId: id,
+            createdBy: userData.name,
+          },
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+
+        console.log(response.data);
+        toast.success('Announcement posted successfully');
+        resetForm();
+      } catch (err) {
+        console.error(err);
+        toast.error(err.response?.data?.error || 'Announcement posting failed');
+      } finally {
+        setSubmitting(false);
+      }
+    },
+  });
 
   return (
-    <div className="bg-gray-100 min-h-screen flex items-center justify-center">
-      <div className="bg-white shadow-lg rounded-lg p-8 w-full max-w-md">
-        <h1 className="text-2xl font-bold text-center text-indigo-600 mb-6">
-           Announcement
-        </h1>
-        <form onSubmit={handleSubmit} className="space-y-4">
+    <div className='mx-auto items-center max-w-lg'>
+      <div className="bg-white shadow-lg rounded-2xl w-full max-w-2xl p-8">
+        <h2 className="text-2xl font-semibold mb-6 text-gray-800">
+          Create Announcement
+        </h2>
+        {userData && (
+          <p className="text-sm text-gray-600 mb-4">
+            Posting as: {userData.name}
+          </p>
+        )}
+        <form className="space-y-6" onSubmit={announcementForm.handleSubmit}>
           {/* Title */}
           <div>
-            <label htmlFor="title" className="block text-gray-700 font-medium">
-              AnnouncedBy
+            <label
+              htmlFor="title"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Title
             </label>
             <input
               type="text"
-              id="announcedby"
-              name="announcedby"
-              value={formData.title}
-              onChange={handleChange}
+              id="title"
+              name="title"
+              onChange={announcementForm.handleChange}
+              value={announcementForm.values.title}
+              placeholder="Enter announcement title"
+              className="mt-1 block w-full rounded-xl border border-gray-300 shadow-sm px-4 py-2 focus:ring-blue-500 focus:border-blue-500"
               required
-              className="w-full mt-1 p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-indigo-500"
-              placeholder="Enter the announcement title"
             />
           </div>
-
-          {/* AnnouncedBy */}
+          {/* Description */}
           <div>
             <label
-              htmlFor="clubname"
-              className="block text-gray-700 font-medium"
+              htmlFor="description"
+              className="block text-sm font-medium text-gray-700"
             >
-              Club Name
+              Description
             </label>
             <textarea
-              id="clubname"
-              name="clubname"
-              value={formData.clubname}
-              onChange={handleChange}
+              id="description"
+              name="description"
+              onChange={announcementForm.handleChange}
+              value={announcementForm.values.description}
+              placeholder="Write your announcement here..."
+              className="mt-1 block w-full rounded-xl border border-gray-300 shadow-sm px-4 py-2 focus:ring-blue-500 focus:border-blue-500 resize-none"
               required
-              className="w-full mt-1 p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-indigo-500"
-              placeholder="Enter the announcement "
               rows="4"
-            ></textarea>
-          </div>
-
-          {/* Club ID */}
-          <div>
-            <label htmlFor="clubId" className="block text-gray-700 font-medium">
-              Club ID
-            </label>
-            <input
-              type="text"
-              id="clubid"
-              name="clubid"
-              value={formData.clubId}
-              onChange={handleChange}
-              required
-              className="w-full mt-1 p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-indigo-500"
-              placeholder="Enter the club ID"
             />
           </div>
-
           {/* Submit Button */}
-          <div>
+          <div className="pt-4">
             <button
               type="submit"
-              disabled={loading}
-              className={`w-full p-2 text-white font-semibold rounded ${
-                loading
-                  ? 'bg-gray-400 cursor-not-allowed'
-                  : 'bg-indigo-600 hover:bg-indigo-700'
-              }`}
+              disabled={announcementForm.isSubmitting}
+              className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-xl transition duration-200"
             >
-              {loading ? 'Creating...' : ' Announcement'}
+              {announcementForm.isSubmitting ? 'Posting...' : 'Post Announcement'}
             </button>
           </div>
         </form>

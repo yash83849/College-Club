@@ -45,7 +45,7 @@ const Announcement = () => {
           },
           {
             headers: {
-              Authorization: `Bearer ${token}`,
+              'x-auth-token': token,
             },
           }
         );

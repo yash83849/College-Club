@@ -18,8 +18,6 @@ const Login = () => {
     onSubmit: values => {
       console.log(values);
 
-      router.push('/');
-
       axios.post('http://localhost:5000/user/authenticate', values)
         .then((result) => {
           console.log(result.data);
@@ -91,7 +89,7 @@ const Login = () => {
                   </a>
                 </div>
               </div>
-              <button className="w-full py-3 font-medium text-white bg-indigo-600 hover:bg-indigo-500 rounded-lg border-indigo-500 hover:shadow inline-flex space-x-2 items-center justify-center">
+              <button type='submit' className="w-full py-3 font-medium text-white bg-indigo-600 hover:bg-indigo-500 rounded-lg border-indigo-500 hover:shadow inline-flex space-x-2 items-center justify-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-6 w-6"

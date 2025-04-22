@@ -7,9 +7,10 @@ require('dotenv').config();
 const router = express.Router();
 
 // Add a new announcement
-router.post('/add', async (req, res) => {
+router.post('/add', verifyToken, async (req, res) => {
     try {
-        const { title, description, clubId, announcementBy } = req.body;
+        const { title, description, clubId } = req.body;
+        const announcementBy = req.user._id; // Get the user ID from the token
 
         // Create a new announcement
         const newAnnouncement = new Model({

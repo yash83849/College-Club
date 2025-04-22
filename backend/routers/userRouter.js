@@ -75,10 +75,12 @@ router.put('/update/:id', (req, res) => {
 });
 
 router.post('/authenticate', (req, res) => {
+    
     Model.findOne(req.body)
-        .then((result) => {
-
-            if (result) {
+    .then((result) => {
+        console.log(result);
+        
+        if (result) {
                 // email and password matched
                 // generate token
 
@@ -100,7 +102,7 @@ router.post('/authenticate', (req, res) => {
                 )
 
             } else {
-                res.status(401), express.json({ message: 'Invalid email or password' });
+                res.status(401).json({ message: 'Invalid email or password' });
             }
 
         }).catch((err) => {

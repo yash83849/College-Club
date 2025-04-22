@@ -24,7 +24,7 @@ const mySchema = new Schema(
     role: {
         type: String,
         enum: ["admin", "user"],
-        default: "admin"
+        default: "user"
     },
         clubs: [{
              type: String, 

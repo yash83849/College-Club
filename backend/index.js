@@ -31,29 +31,48 @@ app.use('/club', clubRouter);
 app.use('/announcement', announcementRouter);
 
 io.on("connection", (socket) => {
-    
-    // Socket.IO logic
-io.on('connection', (socket) => {
     console.log('A user connected:', socket.id);
 
-    // Join a specific room
+    // Handle joining rooms
     socket.on('joinRoom', (room) => {
+        // Leave previous rooms
+        socket.rooms.forEach(prevRoom => {
+            if (prevRoom !== socket.id) {
+                socket.leave(prevRoom);
+            }
+        });
+        
         socket.join(room);
         console.log(`User ${socket.id} joined room: ${room}`);
+        
+        // Notify room about new user
+        socket.to(room).emit('userJoined', `A new user has joined ${room}`);
     });
 
-    // Handle sending messages to a specific room
+    // Handle sending messages
     socket.on('sendMessage', ({ room, message, sender }) => {
-        io.to(room).emit('receiveMessage', { message, sender });
-        console.log(`Message sent to room ${room}:`, message);
+        io.to(room).emit('receiveMessage', {
+            message,
+            sender,
+            timestamp: new Date().toISOString()
+        });
+        console.log(`Message in ${room} from ${sender}: ${message}`);
     });
 
-    // Handle disconnection
+    // Handle user typing
+    socket.on('typing', ({ room, sender }) => {
+        socket.to(room).emit('userTyping', sender);
+    });
+
+    // Handle user stop typing
+    socket.on('stopTyping', ({ room }) => {
+        socket.to(room).emit('userStopTyping');
+    });
+
     socket.on('disconnect', () => {
-        console.log('A user disconnected:', socket.id);
+        console.log('User disconnected:', socket.id);
     });
 });
-  });
 
 // routes or endpoints
 app.get('/', (req, res) => {

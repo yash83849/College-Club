@@ -29,4 +29,4 @@ const mySchema = new Schema({
     }
 });
 
-module.exports = model('announcement', mySchema);
+module.exports = model('Announcement', mySchema);

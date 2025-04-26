@@ -10,7 +10,7 @@ const Footer = () => {
             <div className="col-span-full lg:col-span-2">
               {/* logo - start */}
               <div className="mb-4 lg:-mt-2">
-                <Link
+                <a
                   href="/"
                   className="inline-flex items-center gap-2 text-xl font-bold text-black md:text-2xl"
                   aria-label="logo"
@@ -26,7 +26,7 @@ const Footer = () => {
                     <path d="M96 0V47L48 94H0V47L48 0H96Z" />
                   </svg>
                   CCMS
-                </Link>
+                </a>
               </div>
               {/* logo - end */}
 

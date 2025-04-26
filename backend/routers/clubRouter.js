@@ -43,6 +43,7 @@ router.get('/getbyclubtype/:clubtype', (req, res) => {
 router.get('/getbyuser', verifyToken, (req, res) => {
     Model.find({ members: req.user._id })
         .then((result) => {
+            console.log(result);
             res.status(200).json(result);
         }).catch((err) => {
             console.log(err);

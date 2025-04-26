@@ -10,11 +10,14 @@ const router = express.Router();
 router.post('/add', verifyToken, async (req, res) => {
     try {
         const { title, description, clubId } = req.body;
+        const announcementBy = req.user._id; // Get the user ID from the token
 
         // Create a new announcement
-        const newAnnouncement = new Announcement({
+        const newAnnouncement = new Model({
             clubId,
-            createdBy: req.user._id, // Extracted from the token
+            title, 
+            description,
+            announcementBy
         });
 
         const savedAnnouncement = await newAnnouncement.save();

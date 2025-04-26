@@ -40,6 +40,16 @@ router.get('/getbyclubtype/:clubtype', (req, res) => {
         });
 });
 
+router.get('/getbyuser', verifyToken, (req, res) => {
+    Model.find({ members: req.user._id })
+        .then((result) => {
+            res.status(200).json(result);
+        }).catch((err) => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+});
+
 // getbyid
 router.get('/getbyid/:id', (req, res) => {
     Model.findById(req.params.id)
@@ -109,6 +119,8 @@ router.post('/authenticate', (req, res) => {
 
 // Add a member to a club
 router.post('/addmember/:id', verifyToken, (req, res) => {
+    console.log(req.user); // User ID from the token
+    
     const { id } = req.params; // Club ID
 
     // Update the club's member list by adding the new member

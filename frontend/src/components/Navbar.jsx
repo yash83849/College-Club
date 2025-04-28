@@ -1,5 +1,4 @@
-
-import Link from 'next/link';
+import { IconDropletDown } from '@tabler/icons-react';
 import React from 'react'
 
 const Navbar = () => {

@@ -58,7 +58,7 @@ const BrowseClubs = () => {
                         <img
                           className="object-cover cursor-pointer object-left h-full w-full rounded-xl"
                           src={club.image}
-                          alt="Service 1 Heading"
+                          alt=""
                           width={250}
                           height={250}
                         />

@@ -1,11 +1,11 @@
 'use client';
-import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams } from 'next/navigation';
-import Link from 'next/link';
+import React, { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 
 const ViewClub = () => {
+
   const { id } = useParams();
   const [clubDetails, setClubDetails] = useState(null);
 
@@ -20,9 +20,9 @@ const ViewClub = () => {
 
   const requestMembership = async () => {
     try {
-      const token = localStorage.getItem('token'); // Assuming the token is stored in localStorage
+      const token = localStorage.getItem('token'); // assuming the token is stored in localstorage
       if (!token) {
-        alert('You must be logged in to request membership.');
+        alert ('You must be logged in to request membership.');
         return;
       }
 
@@ -30,10 +30,11 @@ const ViewClub = () => {
         `${process.env.NEXT_PUBLIC_API_URL}/club/addmember/${id}`, {},
         {
           headers: {
-            'x-auth-token': token, // Send the token in the Authorization header
+            'x-auth-token': token, // send the token in the authorization header
           },
         }
       );
+
       toast.success('Membership request sent successfully!');
     } catch (err) {
       console.error('Error requesting membership:', err);
@@ -55,31 +56,64 @@ const ViewClub = () => {
 
   return (
     <div>
-      <div className="bg-gray-100">
-        <div className="container mx-auto px-4 py-8">
-          <div className="flex flex-wrap -mx-4">
-            <div className="w-full md:w-1/2 px-4 mb-8">
-              <img
-                src={clubDetails.image}
-                alt="club"
-                className="w-full h-auto rounded-lg shadow-md mb-4"
-              />
-            </div>
-            <div className="w-full md:w-1/2 px-4">
-              <h2 className="text-3xl font-bold mb-2">{clubDetails.name}</h2>
-              <p className="text-gray-600 mb-4">{clubDetails.description}</p>
-              <button
-                onClick={requestMembership}
-                className="p-2 bg-blue-500 text-white rounded"
-              >
-                Request Membership
-              </button>
-            </div>
-          </div>
+      <>
+  <meta charSet="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link
+    href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+    rel="stylesheet"
+  />
+  <style
+    dangerouslySetInnerHTML={{
+      __html:
+        "\n    .fade-in {\n      animation: fadeIn 0.8s ease-in-out;\n    }\n    @keyframes fadeIn {\n      from { opacity: 0; transform: translateY(20px); }\n      to { opacity: 1; transform: translateY(0); }\n    }\n  "
+    }}
+  />
+  {/* Main Content */}
+  <main className="max-w-7xl mx-auto px-6 py-12 fade-in">
+    <div className="grid md:grid-cols-2 gap-10 items-center">
+      {/* Club Info */}
+      <div className="space-y-6">
+        <h2 className="text-4xl font-bold text-indigo-700">
+          🎨{clubDetails.name}
+        </h2>
+        <p className="text-gray-700 text-lg">
+         {clubDetails.description}
+        </p>
+        <div className="space-y-3">
+          <p>
+            <span className="font-semibold text-indigo-600"></span>
+          </p>
+          <p>
+            <span className="font-semibold text-indigo-600"></span>
+        </p>
+          <p>
+            <span className="font-semibold text-indigo-600"></span> 
+          </p>
         </div>
+        <button
+        onClick={requestMembership}
+          href="#"
+          className="inline-block bg-indigo-600 text-white px-6 py-3 rounded-md shadow hover:bg-indigo-700 transition"
+        >
+          Join Now
+        </button>
+      </div>
+      {/* Club Image */}
+      <div className="overflow-hidden rounded-3xl shadow-lg hover:shadow-2xl transition">
+        <img
+          src={clubDetails.image}
+          alt=" Club"
+          className="w-full h-full object-cover"
+        />
       </div>
     </div>
-  );
-};
+  </main>
+ 
+</>
+
+    </div>
+  )
+}
 
 export default ViewClub;

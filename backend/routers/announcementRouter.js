@@ -31,7 +31,7 @@ router.post('/add', verifyToken, async (req, res) => {
 // Get all announcements
 router.get('/getall', async (req, res) => {
     try {
-        const announcements = await Announcement.find().populate('clubId createdBy', 'name email');
+        const announcements = await Model.find().populate('clubId createdBy', 'name email');
         res.status(200).json(announcements);
     } catch (err) {
         console.error(err);
@@ -43,7 +43,8 @@ router.get('/getall', async (req, res) => {
 router.get('/getbyclub/:clubId', async (req, res) => {
     try {
         const { clubId } = req.params;
-        const announcements = await Announcement.find({ clubId }).populate('createdBy', 'name email');
+        // const announcements = await Model.find({ clubId }).populate('createdBy', 'name email');
+        const announcements = await Model.find({ clubId });
         res.status(200).json(announcements);
     } catch (err) {
         console.error(err);
@@ -57,7 +58,7 @@ router.delete('/delete/:id', verifyToken, async (req, res) => {
         const { id } = req.params;
 
         // Ensure only the creator can delete the announcement
-        const announcement = await Announcement.findById(id);
+        const announcement = await Model.findById(id);
         if (!announcement) {
             return res.status(404).json({ error: 'Announcement not found' });
         }
@@ -81,7 +82,7 @@ router.put('/update/:id', verifyToken, async (req, res) => {
         const { title, description } = req.body;
 
         // Ensure only the creator can update the announcement
-        const announcement = await Announcement.findById(id);
+        const announcement = await Model.findById(id);
         if (!announcement) {
             return res.status(404).json({ error: 'Announcement not found' });
         }

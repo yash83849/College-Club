@@ -52,6 +52,21 @@ router.get('/getbyid/:id', (req, res) => {
         });
 });
 
+// Get current user profile using token
+router.get('/profile', verifyToken, (req, res) => {
+    Model.findById(req.user._id)
+        .select('-password') // Exclude password from the response
+        .then((result) => {
+            if (!result) {
+                return res.status(404).json({ message: 'User not found' });
+            }
+            res.status(200).json(result);
+        }).catch((err) => {
+            console.log(err);
+            res.status(500).json({ message: 'Error fetching user profile', error: err });
+        });
+});
+
 // delete
 router.delete('/delete/:id', (req, res) => {
     Model.findByIdAndDelete(req.params.id)

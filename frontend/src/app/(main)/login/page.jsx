@@ -22,6 +22,8 @@ const Login = () => {
         .then((result) => {
           console.log(result.data);
           toast.success('Login Successful');
+        
+          router.push('/user/dashboard');
 
           localStorage.setItem('token', result.data.token);
 

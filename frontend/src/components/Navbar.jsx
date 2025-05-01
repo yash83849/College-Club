@@ -1,7 +1,10 @@
-import { IconDropletDown } from '@tabler/icons-react';
-import React from 'react'
+'use client';
+import React, { useState } from 'react';
+
 
 const Navbar = () => {
+
+  
   return (
     <div>
       <div className="bg-white lg:pb-12">
@@ -10,7 +13,7 @@ const Navbar = () => {
             {/* logo - start */}
             <a
               href="/"
-              className="inline-flex items-center gap-2.5 text-2xl font-bold text-black md:text-3xl"
+              className="inline-flex items-center gap-2.5 text-2xl font-bold text-sky-700 md:text-3xl italic"
               aria-label="logo"
             >
               <svg
@@ -90,6 +93,8 @@ const Navbar = () => {
               Menu
             </button>
             {/* buttons - end */}
+
+           
           </header>
 
         </div>

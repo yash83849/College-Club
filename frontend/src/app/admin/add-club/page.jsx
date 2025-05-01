@@ -1,5 +1,4 @@
 'use client';
-import {  IconCheck ,IconLoader3 } from '@tabler/icons-react';
 import React from 'react'
 import { useFormik } from 'formik'
 import axios from 'axios';
@@ -13,7 +12,7 @@ const Addclub = () => {
             description: '',
             clubtype: '',
             // createdAt: '',
-            logo: '',
+            // logo: '',
             image: '',
             // members: '',
             // events: '',
@@ -31,7 +30,7 @@ const Addclub = () => {
                 .then((result) => {
                     toast.success('Club registered successfully');
                     resetForm();
-                    // router.push('/login');
+                    router.push('/browse-club');
                 }).catch((err) => {
                     console.log(err);
                     toast.error('Club registration failed');

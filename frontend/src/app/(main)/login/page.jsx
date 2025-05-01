@@ -110,7 +110,7 @@ const Login = () => {
               </button>
               <p className="text-center">
                 Not registered yet?{" "}
-                <Link
+                <a
                   href="signup"
                   className="text-indigo-600 font-medium inline-flex space-x-1 items-center"
                 >
@@ -131,7 +131,7 @@ const Login = () => {
                       />
                     </svg>
                   </span>
-                </Link>
+                </a>
               </p>
             </div>
           </form>

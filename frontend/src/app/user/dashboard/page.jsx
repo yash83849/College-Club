@@ -72,7 +72,7 @@ const Dashboard = () => {
                               <h2 className="text-xl font-bold mb-4">{club.name}</h2>
                               <Link
                         href={'/club/details/' + club._id}
-                        className="p-4 border"
+                        className="p-4 border rounded-md"
                       >details</Link>
                               <p className="text-lg text-pretty text-center mb-4">
                                 {new Date(club.createdAt).toDateString()}

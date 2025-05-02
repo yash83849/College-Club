@@ -451,7 +451,7 @@ const Home = () => {
             <div className="flex justify-center">
               <div className="flex gap-4">
                 <a
-                  href="#"
+                  href="https://www.linkedin.com/in/pratik-vaishya-05061933b/"
                   target="_blank"
                   className="text-gray-400 transition duration-100 hover:text-gray-500 active:text-gray-600"
                 >
@@ -467,7 +467,7 @@ const Home = () => {
                   </svg>
                 </a>
                 <a
-                  href="#"
+                  href="https://x.com/prateekvaish449?s=21"
                   target="_blank"
                   className="text-gray-400 transition duration-100 hover:text-gray-500 active:text-gray-600"
                 >

@@ -63,7 +63,7 @@ const Announcement = () => {
   });
 
   return (
-    <div className='mx-auto items-center max-w-lg pt-10 pb-10'>
+    <div className='mx-auto items-center max-w-lg pt-10 pb-10 '>
       <div className="bg-white shadow-lg rounded-2xl w-full max-w-2xl p-8">
         <h2 className="text-2xl font-semibold mb-6 text-gray-800">
           Create Announcement

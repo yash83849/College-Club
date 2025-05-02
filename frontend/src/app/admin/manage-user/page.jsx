@@ -48,7 +48,7 @@ const ManageUser = () => {
 
 
   return (
-    <div>
+    <div className='bg-white'>
       <>
   {/* Table Section */}
   <div className="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
@@ -193,12 +193,12 @@ const ManageUser = () => {
                   <td className="size-px whitespace-nowrap">
                     <div className="px-6 py-3">
                       <div className="flex items-center gap-x-3">
-                        <span className="text-xs text-gray-500 dark:text-neutral-500">
+                        <span className="text-xs text-white font-bold">
                           {user.role}
                         </span>
-                        <div className="flex w-full h-1.5 bg-gray-200 rounded-full overflow-hidden dark:bg-neutral-700">
+                        <div className="flex  h-1.5  overflow-hidden ">
                           <div
-                            className="flex flex-col justify-center overflow-hidden bg-gray-800 dark:bg-neutral-200"
+                            className="flex flex-col justify-center overflow-hidden bg-gray-800 dark:bg-neutral-200 "
                             role="progressbar"
                             style={{ width: "25%" }}
                             aria-valuenow={25}
@@ -213,13 +213,13 @@ const ManageUser = () => {
                   <td className="size-px whitespace-nowrap">
                     <div className="px-6 py-1.5">
                       <button
-                        className="inline-flex items-center gap-x-1 text-sm text-blue-600 decoration-2 hover:underline focus:outline-hidden focus:underline font-medium dark:text-blue-500"
+                        className="inline-flex items-center gap-x-1 text-sm text-blue-600 decoration-2 focus:outline-hidden  font-medium dark:text-blue-500"
                        onClick={() => 
                     {
                         deleteUser(user._id)
                     }}
                       >
-                        Edit
+                        Delete
                       </button>
                     </div>
                   </td>

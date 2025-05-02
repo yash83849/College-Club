@@ -34,12 +34,12 @@ const Dashboard = () => {
     
 
       return (
-        <div>
+        <div className='bg-white'>
           <section className="lg:px-20 md:px-10 px-5 py-10">
             <div className="mx-auto flex justify-center object-center px-4 py-16 sm:py-24 lg:max-w-7xl">
               <div className="flex justify-center object-center flex-col">
                 <h2 className="text-4xl font-semibold tracking-tight text-blue-950 sm:text-5xl lg:text-6xl">
-                  Clubs
+                 Join Clubs
                 </h2>
                 <div className="grid gap-5 pt-10 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1">
                   {

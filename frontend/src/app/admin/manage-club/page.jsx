@@ -47,7 +47,7 @@ const ManageClub = () => {
 
 
   return (
-    <div>
+    <div className='bg-white'>
       <>
         {/* Table Section */}
         <div className="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
@@ -102,23 +102,11 @@ const ManageClub = () => {
                   {/* Table */}
                   <table className="min-w-full divide-y divide-gray-200 dark:divide-neutral-700">
                     <thead className="bg-gray-50 dark:bg-neutral-800">
-                      <tr>
-                        <th scope="col" className="ps-6 py-3 text-start">
-                          <label
-                            htmlFor="hs-at-with-checkboxes-main"
-                            className="flex"
-                          >
-                            <input
-                              type="checkbox"
-                              className="shrink-0 border-gray-300 rounded-sm text-blue-600 focus:ring-blue-500 checked:border-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-600 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800"
-                              id="hs-at-with-checkboxes-main"
-                            />
-                            <span className="sr-only">Checkbox</span>
-                          </label>
-                        </th>
+                      <tr >
+                        
                         <th
                           scope="col"
-                          className="ps-6 lg:ps-3 xl:ps-0 pe-6 py-3 text-start"
+                          className="ps-6  py-3 text-start "
                         >
                           <div className="flex items-center gap-x-2">
                             <span className="text-xs font-semibold uppercase text-gray-800 dark:text-neutral-200">
@@ -161,19 +149,8 @@ const ManageClub = () => {
                       {
                         ClubList.map((club) => {
                           return <tr key={club._id}>
-                            <td className="size-px whitespace-nowrap">
-                              <div className="ps-6 py-3">
-                                <label htmlFor="hs-at-with-checkboxes-1" className="flex">
-                                  <input
-                                    type="checkbox"
-                                    className="shrink-0 border-gray-300 rounded-sm text-blue-600 focus:ring-blue-500 checked:border-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-600 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800"
-                                    id="hs-at-with-checkboxes-1"
-                                  />
-                                  <span className="sr-only">Checkbox</span>
-                                </label>
-                              </div>
-                            </td>
-                            <td className="size-px whitespace-nowrap">
+                            
+                            <td className="size-px whitespace-nowrap ps-6">
                               <div className="ps-6 lg:ps-3 xl:ps-0 pe-6 py-3">
                                 <div className="flex items-center gap-x-3">
                                   
@@ -212,10 +189,10 @@ const ManageClub = () => {
                             <td className="size-px whitespace-nowrap">
                               <div className="px-6 py-3">
                                 <div className="flex items-center gap-x-3">
-                                  <span className="text-xs text-gray-500 dark:text-neutral-500">
+                                  <span className="text-xs text-white ">
                                     {club.createdBy}
                                   </span>
-                                  <div className="flex w-full h-1.5 bg-gray-200 rounded-full overflow-hidden dark:bg-neutral-700">
+                                  <div className="flex w-full   overflow-hidden ">
                                     <div
                                       className="flex flex-col justify-center overflow-hidden bg-gray-800 dark:bg-neutral-200"
                                       role="progressbar"
@@ -242,9 +219,9 @@ const ManageClub = () => {
                                 {
                                   deleteClub(club._id)
                                 }}
-                                  className="inline-flex items-center gap-x-1 text-sm text-blue-600 decoration-2 hover:underline focus:outline-hidden focus:underline font-medium dark:text-blue-500"
+                                  className="inline-flex items-center gap-x-1 text-sm text-blue-600 decoration-2  font-medium dark:text-blue-500"
                                 >
-                                  Edit
+                                  Delete
                                 </button>
                               </div>
                             </td>

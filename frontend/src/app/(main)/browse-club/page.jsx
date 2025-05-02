@@ -37,7 +37,7 @@ const BrowseClubs = () => {
   }, []);
 
   return (
-    <div>
+    <div className='bg-white'>
       <section className="lg:px-20 md:px-10 px-5 py-10">
         <div className="mx-auto flex justify-center object-center px-4 py-16 sm:py-24 lg:max-w-7xl">
           <div className="flex justify-center object-center flex-col">

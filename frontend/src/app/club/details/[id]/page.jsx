@@ -144,7 +144,7 @@ const Details = () => {
             <div className="border-t pt-4 mt-4">
               <p className="flex items-center text-gray-600 text-sm mb-2">
                 <IconStatusChange className="mr-2 text-gray-500" size={16} />
-                <span className="font-semibold mr-1">Status:</span> {club.status === "false" ? "Inactive" : "Active"}
+                <span className="font-semibold mr-1">Status:</span> {club.status === "true" ? "Inactive" : "Active"}
               </p>
               <p className="flex items-center text-gray-600 text-sm mb-2">
                 <IconUser className="mr-2 text-gray-500" size={16} />

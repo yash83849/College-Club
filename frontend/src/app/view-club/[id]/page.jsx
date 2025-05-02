@@ -115,7 +115,7 @@ const ViewClub = () => {
   }
 
   return (
-    <div>
+    <div className='bg-white'>
       <meta charSet="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link
@@ -147,7 +147,7 @@ const ViewClub = () => {
                 <span className="font-semibold text-indigo-600">Members:</span> {clubDetails.members?.length || 0}
               </p>
               <p>
-                <span className="font-semibold text-indigo-600">Status:</span> {clubDetails.status === "false" ? "Inactive" : "Active"}
+                <span className="font-semibold text-indigo-600">Status:</span> {clubDetails.status === "true" ? "Inactive" : "Active"}
               </p>
             </div>
             

@@ -74,13 +74,13 @@ const Signup = () => {
           "\n    body {\n      font-family: 'Inter', sans-serif;\n    }\n    .floating-label input:focus ~ label,\n    .floating-label input:not(:placeholder-shown) ~ label {\n      transform: translateY(-1.5rem) scale(0.85);\n      color: #6366f1;\n    }\n  "
       }}
     />
-    <div className="min-h-screen flex items-center justify-center">
+    <div className="min-h-screen flex items-center justify-center bg-white">
       <div className="flex w-full max-w-6xl bg-white shadow-2xl rounded-2xl overflow-hidden">
         {/* Left Side */}
         <div className="w-1/2 bg-indigo-500 p-10 text-white flex flex-col justify-center">
           <h2 className="text-4xl font-bold mb-4">Welcome Back!</h2>
           <p className="text-lg mb-6">
-            Join us and experience the best service. Sign up in seconds!
+           
           </p>
           <img
             src="https://img.freepik.com/free-vector/tiny-people-programmers-with-laptops-save-data-backup-server-with-lifebuoy_335657-2439.jpg?ga=GA1.1.480836426.1744216816&semt=ais_hybrid&w=740"

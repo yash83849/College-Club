@@ -147,6 +147,7 @@ const Footer = () => {
               About Us
             </a>
           </div>
+          
 
         </nav>
       </div>
@@ -185,7 +186,7 @@ const Footer = () => {
         <nav className="flex flex-col gap-4">
           <div>
             <a
-              href="#"
+              href="/terms-conditions"
               className="text-gray-500 transition duration-100 hover:text-indigo-500 active:text-indigo-600"
             >
               Term & Conditions

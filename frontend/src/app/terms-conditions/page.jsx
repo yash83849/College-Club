@@ -2,10 +2,9 @@ import React from 'react'
 
 const TermsConditions = () => {
   return (
-    <div>
+    <div className='bg-white'>
     <>
-  <meta charSet="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ 
   <link
     href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
     rel="stylesheet"
@@ -99,10 +98,7 @@ const TermsConditions = () => {
       </div>
     </section>
   </main>
-  {/* Footer */}
-  <footer className="bg-white py-6 text-center text-sm text-gray-500 shadow-inner">
-    © 2025 College Club. All rights reserved.
-  </footer>
+ 
 </>
 
     </div>

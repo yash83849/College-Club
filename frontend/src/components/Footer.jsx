@@ -117,7 +117,7 @@ const Footer = () => {
           </div>
           <div>
             <a
-              href="/user/dashboard"
+              href="/login"
               className="text-gray-500 transition duration-100 hover:text-indigo-500 active:text-indigo-600"
             >
               Dashboard
@@ -147,6 +147,7 @@ const Footer = () => {
               About Us
             </a>
           </div>
+          
 
         </nav>
       </div>
@@ -185,20 +186,13 @@ const Footer = () => {
         <nav className="flex flex-col gap-4">
           <div>
             <a
-              href="#"
+              href="/terms-conditions"
               className="text-gray-500 transition duration-100 hover:text-indigo-500 active:text-indigo-600"
             >
               Term & Conditions
             </a>
           </div>
-          <div>
-            <a
-              href="#"
-              className="text-gray-500 transition duration-100 hover:text-indigo-500 active:text-indigo-600"
-            >
-              Privacy Policy
-            </a>
-          </div>
+          
           <div>
             <a
               href="#"
@@ -208,12 +202,7 @@ const Footer = () => {
             </a>
           </div>
           <div>
-            <a
-              href="#"
-              className="text-gray-500 transition duration-100 hover:text-indigo-500 active:text-indigo-600"
-            >
-              Blog
-            </a>
+        
           </div>
         </nav>
       </div>

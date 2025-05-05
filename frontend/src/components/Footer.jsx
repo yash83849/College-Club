@@ -192,14 +192,7 @@ const Footer = () => {
               Term & Conditions
             </a>
           </div>
-          <div>
-            <a
-              href="#"
-              className="text-gray-500 transition duration-100 hover:text-indigo-500 active:text-indigo-600"
-            >
-              Privacy Policy
-            </a>
-          </div>
+          
           <div>
             <a
               href="#"
@@ -209,12 +202,7 @@ const Footer = () => {
             </a>
           </div>
           <div>
-            <a
-              href="#"
-              className="text-gray-500 transition duration-100 hover:text-indigo-500 active:text-indigo-600"
-            >
-              Blog
-            </a>
+        
           </div>
         </nav>
       </div>

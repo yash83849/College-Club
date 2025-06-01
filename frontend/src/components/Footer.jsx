@@ -217,7 +217,7 @@ const Footer = () => {
             {/* nav - end */}
           </div>
           <div className="border-t py-8 text-center text-sm text-gray-400">
-            © 2025 - Presented Yash Gupta. All rights reserved.
+            © 2025 - Presented By Yash Gupta. All rights reserved.
           </div>
         </footer>
       </div>
